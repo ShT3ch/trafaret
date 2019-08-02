@@ -712,7 +712,7 @@ class List(Trafaret, ListAsyncMixin):
         self.max_length = max_length
 
     def check_common(self, value):
-        if not isinstance(value, list) or not isinstance(value, tuple):
+        if not isinstance(value, list) and not isinstance(value, tuple):
             self._failure("value is not a list", value=value)
         if len(value) < self.min_length:
             self._failure("list length is less than %s" % self.min_length, value=value)
